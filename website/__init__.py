@@ -9,7 +9,7 @@ def create_app():
 	db_name = os.environ.get('DB_NAME')
 
 	app = Flask(__name__) # as for template folder, it looks for "templates" by default
-
+	print(db_name)
 	@app.route('/')
 	def home():
 		cnx = None
