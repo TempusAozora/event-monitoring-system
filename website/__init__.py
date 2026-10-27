@@ -28,7 +28,9 @@ def create_app():
 			cur = cnx.cursor()
 			try:
 				cur.execute("SELECT COUNT(*) FROM users")
-				result = cur.fetchone()[0]
+				row = cur.fetchone()
+				if isinstance(row, tuple):
+					result = row[0]
 			except Exception as e:
 				print(e)
 			cnx.close()
